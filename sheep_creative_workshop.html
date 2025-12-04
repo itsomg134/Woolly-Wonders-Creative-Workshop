@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woolly Wonders - Sheep Creative Workshop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '🐑';
+            position: absolute;
+            font-size: 100px;
+            opacity: 0.1;
+            left: -20px;
+            top: -10px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        header::after {
+            content: '✂️';
+            position: absolute;
+            font-size: 80px;
+            opacity: 0.1;
+            right: 20px;
+            top: 10px;
+            animation: float 4s ease-in-out infinite reverse;
+        }
+
+        h1 {
+            color: #764ba2;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #667eea;
+            font-style: italic;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .intro {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .workshops {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .workshop-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .workshop-card:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .workshop-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: bounce 2s infinite;
+        }
+
+        .workshop-card:nth-child(2) .workshop-icon {
+            animation-delay: 0.3s;
+        }
+
+        .workshop-card:nth-child(3) .workshop-icon {
+            animation-delay: 0.6s;
+        }
+
+        .workshop-card:nth-child(4) .workshop-icon {
+            animation-delay: 0.9s;
+        }
+
+        .workshop-card:nth-child(5) .workshop-icon {
+            animation-delay: 1.2s;
+        }
+
+        .workshop-card:nth-child(6) .workshop-icon {
+            animation-delay: 1.5s;
+        }
+
+        .workshop-card h3 {
+            color: #764ba2;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .workshop-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .cta-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(118, 75, 162, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .workshop-card {
+            animation: fadeIn 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .workshop-card:nth-child(1) { animation-delay: 0.1s; }
+        .workshop-card:nth-child(2) { animation-delay: 0.2s; }
+        .workshop-card:nth-child(3) { animation-delay: 0.3s; }
+        .workshop-card:nth-child(4) { animation-delay: 0.4s; }
+        .workshop-card:nth-child(5) { animation-delay: 0.5s; }
+        .workshop-card:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🐑 Woolly Wonders Creative Workshop 🐑</h1>
+        <p class="tagline">Where Sheep Create Magic with Their Hooves!</p>
+    </header>
+
+    <div class="container">
+        <div class="intro">
+            <p>Welcome to the most baa-rilliant creative space in the meadow! Our talented sheep community comes together to craft, create, and innovate using their unique woolly skills. From knitting masterpieces to sculpting wonders, our sheep prove that creativity knows no bounds!</p>
+        </div>
+
+        <div class="workshops">
+            <div class="workshop-card">
+                <span class="workshop-icon">🧶</span>
+                <h3>Wool Spinning & Weaving</h3>
+                <p>Learn how our sheep transform their own wool into beautiful yarn and create stunning woven tapestries. It's meta-crafting at its finest!</p>
+            </div>
+
+            <div class="workshop-card">
+                <span class="workshop-icon">🎨</span>
+                <h3>Hoof Painting Studio</h3>
+                <p>Discover the art of painting with hooves! Our sheep create abstract masterpieces using natural dyes and their unique painting technique.</p>
+            </div>
+
+            <div class="workshop-card">
+                <span class="workshop-icon">🪴</span>
+                <h3>Garden Sculpture</h3>
+                <p>Watch as sheep arrange stones, flowers, and natural materials into breathtaking garden installations that beautify the entire pasture.</p>
+            </div>
+
+            <div class="workshop-card">
+                <span class="workshop-icon">🎭</span>
+                <h3>Theatrical Performance</h3>
+                <p>Experience sheep drama! Our woolly actors put on spectacular shows complete with costumes made from their own shed wool.</p>
+            </div>
+
+            <div class="workshop-card">
+                <span class="workshop-icon">🎵</span>
+                <h3>Musical Baa-nd</h3>
+                <p>Join our sheep orchestra as they create harmonious melodies using specially designed instruments. From baa-lalaika to sheep-aphones!</p>
+            </div>
+
+            <div class="workshop-card">
+                <span class="workshop-icon">🍰</span>
+                <h3>Grass Cuisine Crafting</h3>
+                <p>Culinary creativity meets nature! Sheep chefs create artistic presentations with grass, herbs, and wildflowers that are both beautiful and delicious.</p>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Join Our Creative Flock!</h2>
+            <p style="margin: 1rem 0; font-size: 1.1rem; color: #666;">Whether you're a sheep or just sheep-curious, everyone is welcome to participate in our workshops and unleash their creative spirit!</p>
+            <button class="cta-button" onclick="alert('Baa-rilliant! 🐑 A shepherd will contact you soon to schedule your first creative session!')">Sign Up for Workshops</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>🐑 Woolly Wonders Creative Workshop © 2025 | Where Every Sheep is an Artist! 🌟</p>
+        <p style="margin-top: 0.5rem;">Located in the Sunny Meadow Pasture | Open Daily from Dawn to Dusk</p>
+    </footer>
+</body>
+</html>
